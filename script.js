@@ -22,20 +22,20 @@ var users = [
 // Función para saber si el usuario existe
 function validarCredenciales() {
   var username = document.getElementById("email").value;
-  var contraseña = document.getElementById("Contraseña").value;
+  var contraseña = document.getElementById("contraseña").value;
 
   var usuarioValido = false;
 
   // Buscar el usuario en el JSON logica que veremos 
   for (var i = 0; i < users.length; i++) {
-    if (users[i].usuario == username && users[i].contraseña === contraseña )
+    if (users[i].usuario === username && users[i].contraseña === contraseña ){
       usuarioValido = true;
     }
   }
 
   return usuarioValido;
 
-
+}
 
 // Función para mostrar alerta
 function alertaCredeciales(event) {
@@ -45,10 +45,9 @@ function alertaCredeciales(event) {
     alert("¡Inicio de sesión exitoso!");
   }
   if (validarCredenciales() == false) {//si la funcion validarCredenciales es true}
-    alert("Error al inicion de sesion")
+    alert("Error al inicion de sesion");
   }
 
-  // TAREA - agregar if en caso de false
 }
 
 document.getElementById("login-button").addEventListener("click", alertaCredeciales); //agregar el evento click al boton con id="login-button"
